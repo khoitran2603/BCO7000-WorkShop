@@ -10,12 +10,45 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
+
 #Command + Option + I = Generate R chunk (Ctrl+Alt+I)
 library(tidyverse)
+library(skimr)
 
+#Import data source with "read" and "write" function
 survey <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-05-18/survey.csv')
 
 #write_csv(survey,file = "survey_data.csv")
 write_csv(survey,"survey_data.csv")
+
+
+survey%>%glimpse()
+survey%>%skim()
 ```
+### Data WRANGLING
+
+#### Filer
+
+```{r}
+#"==" Logical equal means the condition must always True
+#"|" means OR
+survey%>%
+  filter(country=="Australia")
+           
+survey_IT_au<-survey%>%
+  filter(country=="Australia" | country=="australia" | country=="Australi")%>%
+  filter(industry=="Computing or Tech" & annual_salary>80000)
+```
+
+### Select
+
+```{r}
+survey_IT_au %>% 
+  select(how_old_are_you, job_title, annual_salary)%>%
+  arrange(annual_salary)
+
+survey_IT_au %>%
+  select(-industry)  
+```
+
 
