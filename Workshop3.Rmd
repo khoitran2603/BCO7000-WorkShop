@@ -119,4 +119,12 @@ survey_IT_au<-survey_IT_au%>%
 
 ```
 
+### Assessment 1
+
+```{r}
+
+fastfood %>%
+  filter(calories > 1000)
+```
+
 
