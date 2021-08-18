@@ -9,6 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<<<<<<< HEAD
 ```{r}
 library(tidyverse)
 library(scales)
@@ -27,26 +28,3 @@ mpg %>% ggplot(
   geom_point()+
   facet_wrap(~cyl, nrow=2)
 ```
-```{r}
-
-#Graph 2
-mpg %>% ggplot(
-  aes(x=class,
-      y=hwy)
-)+
-  geom_col()+
-  coord_flip()
-
-
-mpg %>% ggplot(
-  aes(x=class,
-      y=hwy)
-)+
-  geom_boxplot()
-  
-
-
-```
-
-
-
